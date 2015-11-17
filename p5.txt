@@ -103,10 +103,19 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 11. Una vez conectado, estudia el intercambio de tramas.
  ** ¿Qué protocolo(s) se utiliza(n)? ¿Para qué sirven estos protocolos?
+    RTP para todo lo que tenga que ver con tiempo real
+    Y el estandar H-261 para poder manejar los paquetes que enviamos y recibimos
  ** ¿Cuál es el tamaño de paquete de los mismos?
+    De RTP son 214
  ** ¿Se utilizan bits de padding?
+    No, Padding: False 
  ** ¿Cuál es la periodicidad de los paquetes que se envían?
+    varia entre 0.02 segundos y unos 0.04 en el peor casi, luego se enviaran cada 0.02 aprox y dependerá del delay, etc
  ** ¿Cuántos bits/segundo estamos enviando?
+    si enviamos paquetes cada 0.02 segundos de un tamaño de 214 bytes:
+    214 bytes * 8 = 1712
+    1 s / 0,02 s = 50 paquetes por segundo
+    1712 bits * 50 = 85600 bits/s
 
 
 
