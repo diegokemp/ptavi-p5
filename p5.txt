@@ -123,18 +123,28 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 12. Vamos a ver más a fondo el intercambio RTP. En Telephony hay una opción RTP. Empecemos mirando los flujos RTP.
  ** ¿Cuántos flujos hay? ¿por qué?
+    2, uno por el puerto 5010 y otro por el 5014 // Ya que se trata de RTP supongo que serán audio y video
  ** ¿Cuántos paquetes se pierden?
+    En status salen todos como OK, luego supongo que no se ha perdido ninguno
  ** ¿Cuál es el valor máximo del delta? ¿Y qué es lo que significa el valor de delta?
+    delta = 1290.44 y 1290.47 [ms] // el retardo entre los paquetes
  ** ¿Cuáles son los valores de jitter (medio y máximo)? ¿Qué quiere decir eso? ¿Estamos ante una conversación de calidad?
+    maximo 119.63 y 183.09 y medio 42.5 y 153.24 respectivamente // no, porque fluctuan mucho
 
 
 13. Elige un paquete RTP de audio. Analiza el flujo de audio en Telephony -> RTP -> Stream Analysis.
  ** ¿Cuánto valen el delta y el jitter para el primer paquete que ha llegado?
+    el primero es el de "prueba" y por lo tanto valen 0 ambos casos, una vez enviado dicho paquete con un numero de secuencia aleatorio el siguiente con el numero de secuencia ya sucesivo al primero tiene de delta el valor 21.28 y de jitter 0,08
  ** ¿Podemos saber si éste es el primer paquete que nos han enviado?
+    En este caso si porque sabemos que no se han perdido paquetes, pero por lo normal no ya que para nosotros el que nos han mandado primero será el primero que recibamos ya que el numero de secuencia por seguridad es aleatorio en el primer paquete
  ** Los valores de jitter son menores de 10ms hasta un paquete dado. ¿Cuál?
+    hasta el 247
  ** ¿A qué se debe el cambio tan brusco del jitter?
+    Porque si te fijas cambia el ancho de banda a un valor menor(de 62,4 a 28,8)
  ** ¿Es comparable este cambio con el tiempo desde la recepción del paquete anterior? ¿Por qué?
+    Si, porque al cambiar el ancho de banda a menos, el retardo entre los paquetes varia(aumenta)
  ** ¿Cuál es la dependencia entre el tiempo transcurrido desde el paquete anterior y el valor de jitter?
+    No hay una dependencia matematica exacta, pero los cambios de jitter bruscos hace que haya mas retardo
 
 
 14. En Telephony selecciona el menú VoIP calls. Verás que se lista la llamada de voz IP capturada en una ventana emergente. Selecciona esa llamada y pulsa el botón Graph.
