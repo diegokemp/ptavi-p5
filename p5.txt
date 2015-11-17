@@ -13,13 +13,18 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 2. Observa que las tramas capturadas corresponden a una sesión SIP con Ekiga, un cliente de VoIP para GNOME. Responde a las siguientes cuestiones:
  ** ¿Cuántos paquetes componen la captura?
+    954
  ** ¿Cuánto tiempo dura la captura?
+    56.15 segundos aprox.
  ** ¿Qué IP tiene la máquina donde se ha efectuado la captura? ¿Se trata de una IP pública o de una IP privada? ¿Por qué lo sabes?
+    192.168.1.34 // IP privada // Porque las IP en el rango de direcciones 192.169.0.0 - 192.168.255.255 son privadas de clase C
 
 
 3. Antes de analizar las tramas, mira las estadísticas generales que aparecen en el menú de Statistics. En el apartado de jerarquía de protocolos (Protocol Hierarchy) se puede ver el porcentaje del tráfico correspondiente al protocolo TCP y UDP.
  ** ¿Cuál de los dos es mayor? ¿Es esto consistente con una aplicación que transmite en tiempo real?
+    UDP es mayor por mucho // Si, ya que en tiempo real se usa udp ya que si pierde paquetes simplemente los descarta frente a tcp que reintenta el envio
  ** ¿Qué otros protocolos podemos ver en la jerarquía de protocolos?
+    ICMP,RTP,RTCP,HTTP,ARP..
 
 
 4. Observa por encima el flujo de tramas en el menú de Statistics en IO Graphs. La captura que estamos viendo incluye desde la inicialización (registro) de la aplicación hasta su finalización, con una llamada entremedias.
