@@ -24,7 +24,7 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
  ** ¿Cuál de los dos es mayor? ¿Es esto consistente con una aplicación que transmite en tiempo real?
     UDP es mayor por mucho // Si, ya que en tiempo real se usa udp ya que si pierde paquetes simplemente los descarta frente a tcp que reintenta el envio
  ** ¿Qué otros protocolos podemos ver en la jerarquía de protocolos?
-    ICMP,RTP,RTCP,HTTP,ARP..
+    ICMP,RTP,RTCP,HTTP,ARP.
 
 
 4. Observa por encima el flujo de tramas en el menú de Statistics en IO Graphs. La captura que estamos viendo incluye desde la inicialización (registro) de la aplicación hasta su finalización, con una llamada entremedias.
