@@ -82,17 +82,24 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 9. Fijémonos en las tramas siguientes a la número 46:
  ** ¿Se registra con éxito en el primer intento?
+    no, Status: 401 Unauthorized
  ** ¿Cómo sabemos si el registro se ha realizado correctamente o no?
+    Viendo el siguiente paquete SIP
  ** ¿Podrías identificar las diferencias entre el primer intento y el segundo de registro? (fíjate en el tamaño de los paquetes y mira a qué se debe el cambio)
+    Faltaba el campo Authorization, por eso el segundo intento ocupa 712 bytes en vez de 523 que ocupaba el primero
  ** ¿Cuánto es el valor del tiempo de expiración de la sesión? Indica las unidades.
+    3600 segundos = 1 hora
 
 
 10. Una vez registrados, podemos efectuar una llamada. Vamos a probar con el servicio de eco de Ekiga que nos permite comprobar si nos hemos conectado correctamente. El servicio de eco tiene la dirección sip:500@ekiga.net. Veamos el INVITE de cerca.
  ** ¿Puede verse el nombre del que efectúa la llamada, así como su dirección SIP?
+    si, en el campo from: "Gregorio Robles" <sip:grex@ekiga.net>
  ** ¿Qué es lo que contiene el cuerpo de la trama? ¿En qué formato/protocolo está?
+    la descripcion de la sesion (SDP)
  ** ¿Tiene éxito el primer intento? ¿Cómo lo sabes?
+    No, porque le devuelve un error 407 Proxy Authentication Required
  ** ¿En qué se diferencia el segundo INVITE más abajo del primero? ¿A qué crees que se debe esto?
-
+    Le falta el campo Proxy-Authorization al primer INVITE
 
 11. Una vez conectado, estudia el intercambio de tramas.
  ** ¿Qué protocolo(s) se utiliza(n)? ¿Para qué sirven estos protocolos?
